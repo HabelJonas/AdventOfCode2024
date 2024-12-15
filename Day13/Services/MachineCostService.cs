@@ -2,26 +2,20 @@
 
 namespace Day13.Services;
 
-public class MachineCostService(Button buttonA, Button buttonB, Prize prize)
+public static class MachineCostService
 {
-	public int X { get; set; }
-	public int Y { get; set; }
-	public Button ButtonA { get; } = buttonA;
-	public Button ButtonB { get; } = buttonB;
-	public Prize Prize { get; } = prize;
-
-	public int CalculateCost()
+	public static int CalculateCost(Button buttonA, Button buttonB, Prize prize)
 	{
 		int cost = 0;
 		try
 		{
-			var (a, b) = LinearEquationSolver.CalculateLinearSolution(ButtonA.X, ButtonB.X, Prize.X, ButtonA.Y, ButtonB.Y, Prize.Y);
+			var (a, b) = LinearEquationSolver.CalculateLinearSolution(buttonA.X, buttonB.X, Prize.X, buttonA.Y, buttonB.Y, prize.Y);
 			if (a > 100 || b > 100)
 			{
 				throw new InvalidOperationException();
 			}
-			cost += ButtonA.Cost * (int)Math.Round(a);
-			cost += ButtonB.Cost * (int)Math.Round(b);
+			cost += buttonA.Cost * (int)Math.Round(a);
+			cost += buttonB.Cost * (int)Math.Round(b);
 		}
 		catch (InvalidOperationException)
 		{
