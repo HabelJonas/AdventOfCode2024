@@ -18,8 +18,7 @@ if (File.Exists(filePath))
 		Button buttonB = ButtonFactory.CreateButton(lines[1], "ButtonB:X+", 1);
 		Prize prize = PrizeFactory.CreatePrize(lines[2]);
 
-		MachineCostService mcc = new(buttonA, buttonB, prize);
-		int machineCost = mcc.CalculateCost();
+		int machineCost = MachineCostService.CalculateCost(buttonA, buttonB, prize);
 		if (machineCost > 0)
 		{
 			totalCost += machineCost;

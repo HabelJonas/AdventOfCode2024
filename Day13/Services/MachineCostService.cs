@@ -9,7 +9,7 @@ public static class MachineCostService
 		int cost = 0;
 		try
 		{
-			var (a, b) = LinearEquationSolver.CalculateLinearSolution(buttonA.X, buttonB.X, Prize.X, buttonA.Y, buttonB.Y, prize.Y);
+			var (a, b) = LinearEquationSolver.CalculateLinearSolution(buttonA.X, buttonB.X, prize.X, buttonA.Y, buttonB.Y, prize.Y);
 			if (a > 100 || b > 100)
 			{
 				throw new InvalidOperationException();
