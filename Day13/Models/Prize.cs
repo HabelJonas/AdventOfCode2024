@@ -2,6 +2,6 @@
 
 public class Prize
 {
-	public int X { get; set; }
-	public int Y { get; set; }
+	public long X { get; set; }
+	public long Y { get; set; }
 }

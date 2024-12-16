@@ -17,7 +17,7 @@ public class MachineCostServiceTests
 		Prize prize = new() { X = 8400, Y = 5400 };
 
 		// Act
-		int result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
+		long result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
 
 		// Assert
 		Assert.Equal(280, result);
@@ -32,7 +32,7 @@ public class MachineCostServiceTests
 		Prize prize = new() { X = 12748, Y = 12176 };
 
 		// Act
-		int result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
+		long result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
 
 		// Assert
 		Assert.Equal(-1, result);
@@ -47,7 +47,7 @@ public class MachineCostServiceTests
 		Prize prize = new() { X = 18641, Y = 10279 };
 
 		// Act
-		int result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
+		long result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
 
 		// Assert
 		Assert.Equal(-1, result);
@@ -62,7 +62,7 @@ public class MachineCostServiceTests
 		Prize prize = new() { X = 7870, Y = 6450 };
 
 		// Act
-		int result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
+		long result = MachineCostService.CalculateCost(buttonA, buttonB, prize);
 
 		// Assert
 		Assert.Equal(200, result);
