@@ -1,5 +1,5 @@
 ﻿namespace Day1.Services;
-public static class DistanceCalculationService
+public static class ListComparisonService
 {
 	public static int CalculateSumOfDistances(List<int> left, List<int> right)
 	{
@@ -15,5 +15,17 @@ public static class DistanceCalculationService
 			right.Remove(minRight);
 		}
 		return sum;
+	}
+
+	public static int CalculateSimilarityScore(List<int> left, List<int> right)
+	{
+		int score = 0;
+		for (int i = 0; i < left.Count; i++)
+		{
+			int number = left[i];
+			int numberOfAppearances = right.Count(x => x == number);
+			score += number * numberOfAppearances;
+		}
+		return score;
 	}
 }

@@ -5,11 +5,29 @@ Console.WriteLine("Part One:");
 string filePath = "input.txt";
 if (File.Exists(filePath))
 {
-	string input = File.ReadAllText(filePath);
+	string input;
+	List<int> left, right;
+	string[] lines;
+	ProcessInputFile(filePath, out input, out left, out right, out lines);
+	Console.WriteLine(ListComparisonService.CalculateSumOfDistances(left, right));
+
+	Console.WriteLine("Part Two:");
+
+	ProcessInputFile(filePath, out input, out left, out right, out lines);
+	Console.WriteLine(ListComparisonService.CalculateSimilarityScore(left, right));
+}
+else
+{
+	Console.WriteLine("File not found.");
+}
+
+static void ProcessInputFile(string filePath, out string input, out List<int> left, out List<int> right, out string[] lines)
+{
+	input = File.ReadAllText(filePath);
 	input = input.Replace("   ", ",");
-	List<int> left = [];
-	List<int> right = [];
-	string[] lines = input.Split(Environment.NewLine);
+	left = [];
+	right = [];
+	lines = input.Split(Environment.NewLine);
 	foreach (string line in lines)
 	{
 		string[] values = line.Split(",");
@@ -19,9 +37,4 @@ if (File.Exists(filePath))
 			right.Add(int.Parse(values[1]));
 		}
 	}
-	Console.WriteLine(DistanceCalculationService.CalculateSumOfDistances(left, right));
-}
-else
-{
-	Console.WriteLine("File not found.");
 }
