@@ -8,10 +8,10 @@ if (File.Exists(filePath))
 	string input = File.ReadAllText(filePath);
 	string[] lines = input.Split(Environment.NewLine);
 
-	List<Report> reports = new();
+	List<Report> reports = [];
 	foreach (string line in lines)
 	{
-		int[] level = line.Split(" ").Select(int.Parse).ToArray();
+		List<int> level = line.Split(" ").Select(int.Parse).ToList();
 		Report report = new(level);
 		reports.Add(report);
 	}
@@ -21,8 +21,8 @@ if (File.Exists(filePath))
 
 	Console.WriteLine("Part Two:");
 
-	//ProcessInputFile(filePath, out input, out left, out right, out lines);
-	//Console.WriteLine(ListComparisonService.CalculateSimilarityScore(left, right));
+	int numberOfSafeReportsWithDampener = reports.Count(report => report.IsSafeWithDampener());
+	Console.WriteLine("Number of safe reports with dampener: " + numberOfSafeReportsWithDampener);
 }
 else
 {
