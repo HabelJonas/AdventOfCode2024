@@ -14,3 +14,13 @@ foreach ((int factor1, int factor2) in factors)
 	sum += factor1 * factor2;
 }
 Console.WriteLine(sum);
+
+Console.WriteLine("Part Two:");
+
+List<(int, int)> enabledFactors = TokenFinderService.FindEnabledFactors(input);
+sum = 0;
+foreach ((int factor1, int factor2) in enabledFactors)
+{
+	sum += factor1 * factor2;
+}
+Console.WriteLine(sum);
