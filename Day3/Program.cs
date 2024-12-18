@@ -8,7 +8,6 @@ string input = File.ReadAllText("input.txt");
 
 List<(int, int)> factors = TokenFinderService.FindFactors(input);
 
-// go over the factors and multiply them and add them to the sum
 int sum = 0;
 foreach ((int factor1, int factor2) in factors)
 {
